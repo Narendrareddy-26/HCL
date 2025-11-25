@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form validation</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+
+        form {
+            width: 320px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid gray;
+            border-radius: 10px;
+            background: #f7f7f7;
+        }
+
+        label {
+            display: block;
+            text-align: left;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: 1px solid gray;
+        }
+
+        .error {
+            font-size: 14px;
+            color: red;
+            text-align: left;
+            display: block;
+            margin-top: 3px;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 20px;
+            padding: 10px;
+            background: blue;
+            color: white;
+            border-radius: 5px;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body style="text-align: center;">
+    <h1 text-align="center">FORM VALIDATION</h1>
+    <form onsubmit="return validateForm()">
+        <label for="myname">User Name:</label>
+        <input type="text" id="myname" name="name" placeholder="username">
+        <span id="nameerror" class="error"></span>
+        <br><br>
+        <label for="myemail">Email:</label>
+        <input type="text" id="myemail" placeholder="username@gmail.com">
+        <span id="emailerror" class="error"></span>
+        <br><br>
+        <label for="mypassword">Password:</label>
+        <input  type="password"  id="mypassword" placeholder="user password">
+        <span id="passworderror" class="error"></span>
+        <br><br>
+        <button type="submit" style="text-align: center;"> submit</button>
+    </form>
+    <script>
+        function validateForm(){
+        let name=document.getElementById("myname").value.trim();
+        let email=document.getElementById("myemail").value.trim();
+        let password=document.getElementById("mypassword").value.trim();
+        let valid=true;
+        document.getElementById("nameerror").innerHTML="";
+        document.getElementById("emailerror").innerHTML="";
+        document.getElementById("passworderror").innerHTML="";
+        if(name === ""){
+            document.getElementById("nameerror").innerHTML="Name is required";
+            valid=false;
+        }
+        if(email === ""){
+            document.getElementById("emailerror").innerHTML="email is required";
+            valid=false;
+        }
+        else if(!email.includes("@") || !email.includes(".")){
+            document.getElementById("emailerror").innerHTML="enter valid email";
+            valid=false;
+        }
+        if(password.length<6){
+            document.getElementById("passworderror").innerHTML="password should not be less than 6 chars";
+            valid = false;
+        }
+        return valid;
+
+        }
+    </script>
+</body>
+</html>

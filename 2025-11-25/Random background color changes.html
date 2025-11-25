@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #demo{
+            width:300px;
+            height: 150px;
+            border:2px solid black;
+            border-radius: 5px;
+        }
+        button{
+            width:150px;
+            display:block;
+            padding:5px 10px;
+            border:2px solid black;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <button type="submit" id="demo"></button>
+    <br><br>
+    <button  onclick="color()">change color</button>
+    <script>
+        function color(){
+            let color='#'+ Math.floor(Math.random()*16777215).toString(16);
+            document.getElementById("demo").style.backgroundColor=color;
+
+        }
+    </script>
+    
+</body>
+</html>

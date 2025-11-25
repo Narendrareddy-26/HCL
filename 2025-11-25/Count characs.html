@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <textarea id="mytext" oninput="char()" placeholder="type something.." rows="5" cols="30"></textarea>
+    <p style="font-weight: bold;">characters : <span id="count">0</span></p>
+    <script>
+        function char(){
+            let text=document.getElementById("mytext").value;
+            document.getElementById("count").innerHTML=text.length;
+        }
+    </script>
+    
+</body>
+</html>
